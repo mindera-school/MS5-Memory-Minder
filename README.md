@@ -1,2 +1,3 @@
-# estagiario-gabriel-jogo
-Projeto (jogo) final do estagiário Gabriel Sillos
+# Memory Minder
+
+A basic Memory Game using vanilla HTML/CSS/JS
