@@ -1,19 +1,18 @@
-const button = document.getElementsByClassName('cell');
+let container = document.getElementsByClassName('board');
+let carddeck = document.getElementById('carddeck');
+let button = document.getElementsByTagName('button');
 const urls = ["https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Spaceship%20Color.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Camping.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Black%20Cat%20White%20Cat.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/California.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Cookie.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Alien.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Gamer.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Glases.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/MindMario.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Neon%20Blue.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Spaceship%20Color.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Camping.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Black%20Cat%20White%20Cat.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/California.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Cookie.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Alien.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Gamer.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Glases.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/MindMario.png?raw=true", "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Neon%20Blue.png?raw=true"];
 const compare = [];
 const div = document.getElementsByClassName('board');
 
 
-
 for (let i = 0; i < 20; i++) {
-	const button = document.createElement('button');
-	const img = document.createElement('img');
-
-	button.setAttribute('class', 'cell');
-	img.setAttribute('class', 'imagem');
-	img.setAttribute('src', 'https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Slime.png?raw=true');
-	img.setAttribute('alt', 'Slime Minder');
-
+	const button = document.createElement("button");
+	const image = document.createElement('img');
+	button.setAttribute("class", "cell");
+	carddeck.appendChild(button);
+	image.src = "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Slime.png?raw=true";
+	button.appendChild(image);
 }
 
 for (let i = 0; i < urls.length; i++) {
@@ -28,4 +27,3 @@ for (let i = 0; i < urls.length; i++) {
 		}
 	})
 }
-
