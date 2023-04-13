@@ -2,7 +2,13 @@
 
 ## Summary
 
-it's a card game, in which you have to find a card equal to the card you picked up, it's a mental game for all ages, it develops mental abilities.
+A memory game made on React is a web-based game that challenges the player's memory by presenting a grid of cards face down. The player must turn over pairs of cards to reveal their hidden images and try to match all pairs before time runs out.
+
+The game is built using React, a popular JavaScript library for building user interfaces. It utilizes React's component-based architecture to create reusable components such as cards and a game board.
+
+The game starts by shuffling the cards and laying them out in a grid. When the player clicks on a card, it flips over to reveal its image. If the player clicks on a second card, the game checks if it matches the first card. If the cards match, they stay face up. If they don't match, the cards flip back over, and the player continues trying to find matching pairs.
+
+Overall, a memory game made on React provides a fun and engaging way for players to exercise their memory skills while enjoying a visually appealing and interactive game experience.
 
 ## Mechanics
 
@@ -10,15 +16,15 @@ it's a card game, in which you have to find a card equal to the card you picked 
 
 ## Goals
 
-- Find a card // the same button
+The main goal of the Memory game is for the player to find matching pairs of cards or buttons. Each pair will earn the player points, and the game will end when all pairs have been found. 
 
 ## Art and Design
 
-- Flashy colors, elements: cards//buttons;
+The Memory game should have a visually appealing design to attract players and create an engaging experience. The game's design may include flashy colors, images, and animations to capture the player's attention. The game's elements, such as cards and buttons, should be clearly visible and easy to click on. The game may have a theme or storyline to give it context and make it more interesting.
 
 ## Technology
 
-- Will contain html, javascript and css
+The Memory game will be built using web technologies such as HTML, CSS, and JavaScript. The game will be responsive, allowing it to work on different devices and screen sizes. The game may use external libraries or frameworks to speed up development or add additional functionality, such as React for component-based development or Bootstrap for responsive design. The game may also use APIs for additional features such as user authentication or multiplayer functionality. Testing and debugging tools will be used to ensure the game is functional and bug-free.
 
 ## Inspirations
 
@@ -30,7 +36,7 @@ it's a card game, in which you have to find a card equal to the card you picked 
 
 | Name | Value |
 | --- | --- |
-| Game of the Cock | undefined |
+| Engine/Language | React, HTML, JavaScript, CSS |
 | Platform | WEB |
 | Number of Players | 1 |
 | Release Date | March 31 |
