@@ -12,7 +12,7 @@ Overall, a memory game made on React provides a fun and engaging way for players
 
 ## Mechanics
 
-- click on the card/button to display a picture of the mindera, and if you don't find a matching card then the two are displayed again, if they are the same cards the cards keep the picture displayed.
+Click on the card/button to display a picture of the mindera, and if you don't find a matching card then the two are displayed again, if they are the same cards the cards keep the picture displayed.
 
 ## Goals
 
