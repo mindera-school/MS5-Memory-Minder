@@ -3,14 +3,27 @@ import styled from "styled-components";
 import Card from "../Card";
 
 function CardContainer() {
-    let allCards = [];
-    for (let i = 0; i < 20; i++) {
-      allCards.push(<Card key={i} />);
+    const allCards = [];
+    const images = [
+        "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Agent.png?raw=true",
+        "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Alien.png?raw=true",
+        "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Autumn.png?raw=true",
+        "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/BarMinder.png?raw=true",
+        "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/BatMinder.png?raw=true",
+        "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Big%20Wally.png?raw=true",
+        "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Bigodes.png?raw=true",
+        "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Biker.png?raw=true",
+        "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Black%20Cat%20White%20Cat.png?raw=true",
+        "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Black.png?raw=true"
+    ];
+
+    for (let i = 0; i < 10; i++) {
+        allCards.push(<Card key={i} image={images[i]} />);
     }
 
 
-    return(<Container>
-        {allCards}
+    return (<Container>
+        {[...allCards, ...allCards].sort(() => Math.random() - 0.5)}
     </Container>);
 }
 
