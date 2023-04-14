@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { appContext } from "../../App";
 
-function Card({ image }) {
-  return (<Container>
-    <img src={image} />
-  </Container>);
+function Card({ image, id }) {
+  const { setChosenCards } = useContext(appContext);
+  const { chosenCards } = useContext(appContext);
+  const info = { image: image, id: id };
+
+  return (
+    <Container onClick={() => setChosenCards([...chosenCards, info])}>
+      <img src={image} alt="Minder icons" />
+    </Container>
+  );
 }
 
-const Container = styled.div`
+const Container = styled.button`
   margin: 5px;
   width: 150px;
   height: 180px;
@@ -16,8 +23,10 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
+  cursor: pointer;
 
-  & img{
+  & img {
     height: 150px;
     width: 150px;
   }
