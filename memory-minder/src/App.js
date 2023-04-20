@@ -9,7 +9,7 @@ function App() {
   const [allCards, setAllCards] = useState([]);
   const [chosenCards, setChosenCards] = useState([]);
   const images = [
-    "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Agent.png?raw=true",
+    "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Cookie.png?raw=true",
     "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Alien.png?raw=true",
     "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Autumn.png?raw=true",
     "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/BarMinder.png?raw=true",
@@ -19,7 +19,7 @@ function App() {
     "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Biker.png?raw=true",
     "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Black%20Cat%20White%20Cat.png?raw=true",
     "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Black.png?raw=true",
-    "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Agent.png?raw=true",
+    "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Cookie.png?raw=true",
     "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Alien.png?raw=true",
     "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Autumn.png?raw=true",
     "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/BarMinder.png?raw=true",
