@@ -5,6 +5,7 @@ import { appContext } from "../../App";
 
 function Game() {
   const allCards = useContext(appContext).allCards;
+  const clicks = useContext(appContext).clicks;
   const numberOfFound = allCards.filter(e => {
     if (e.found) {
       return true;
@@ -17,6 +18,8 @@ function Game() {
       <Counter>
         <span>Number of Cards Found:</span>
         {numberOfFound}
+        <span>Mismatches:</span>
+        {Math.floor((clicks - numberOfFound) / 2)}
       </Counter>
       <CardContainer />
     </GameContainer>
