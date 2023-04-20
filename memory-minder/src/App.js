@@ -8,7 +8,6 @@ export const appContext = createContext({});
 function App() {
   const [allCards, setAllCards] = useState([]);
   const [chosenCards, setChosenCards] = useState([]);
-  const [buttonState, setButtonState] = useState();
   const images = [
     "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Agent.png?raw=true",
     "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Alien.png?raw=true",
@@ -33,16 +32,17 @@ function App() {
   ];
 
   useEffect(() => {
-    if (chosenCards.length === 2) {
-      if(chosenCards[0].id === chosenCards[1].id){
-        setChosenCards([chosenCards[0]]);
-        return;
+    if (chosenCards.length === 3) {
+      if (chosenCards[0].image === chosenCards[1].image) {
+        setAllCards(allCards.map(e => {
+          if (e.id === chosenCards[0].id || e.id === chosenCards[1].id) {
+            return { ...e, found: true };
+          }
+          return e;
+        }));
+        setChosenCards([]);
       }
-      if (chosenCards[0].image === chosenCards[1].image){
-        //Matched
-         setButtonState(true)
-      }
-      setChosenCards([])
+      setChosenCards([]);
     }
   }, [chosenCards]);
 
@@ -52,6 +52,7 @@ function App() {
         return {
           id: Math.random().toString(36).substr(2, 9),
           image: e,
+          found: false
         };
       })
     );
@@ -59,7 +60,7 @@ function App() {
   }, []);
 
   return (
-    <appContext.Provider value={{ allCards, setChosenCards, chosenCards, buttonState }}>
+    <appContext.Provider value={{ allCards, setChosenCards, chosenCards }}>
       <div className="App">
         <Game></Game>
         <GlobalStyle />
@@ -71,7 +72,7 @@ function App() {
 const GlobalStyle = createGlobalStyle`
   body {
     height: 100vh;
-    display: flex;;
+    display: flex;
     justify-content: center;
     align-items: center;
   }

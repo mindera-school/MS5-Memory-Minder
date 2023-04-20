@@ -7,7 +7,7 @@ function CardContainer() {
   const { allCards } = useContext(appContext);
   const { buttonState } = useContext(appContext);
   const showCards = allCards.map((e) => {
-    return <Card image={e.image} id={e.id} disabled={true}/>;
+    return <Card image={e.image} id={e.id} found={e.found} />;
   });
   return <Container>{showCards}</Container>;
 }

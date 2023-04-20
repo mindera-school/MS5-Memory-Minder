@@ -1,15 +1,41 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { appContext } from "../../App";
 
-function Card({ image, id }) {
+function Card({ image, id, found }) {
   const { setChosenCards } = useContext(appContext);
   const { chosenCards } = useContext(appContext);
-  const info = { image: image, id: id };
+  const info = { image: image, id: id, found: found };
+  const [imageToRender, setImageToRender] = useState();
+
+  const isChosen = () => {
+    const searchResult = chosenCards.find(e => e.id === info.id);
+    return searchResult === undefined ? false : true;
+  };
+
+  const getImage = () => {
+    if (found) {
+      console.log(found)
+      return <img src={image} alt="Minder icons" />;
+    }
+    if (isChosen()) {
+      return <img src={image} alt="Minder icons" />;
+    }
+    return <img src={"https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Pixel%20Art/MinderaOlhoLozangulo.png?raw=true"} alt="Pixel minder" />;
+  }
+
+  useEffect(() => {
+    setImageToRender(getImage());
+  }, [chosenCards.length])
 
   return (
-    <Container onClick={() => setChosenCards([...chosenCards, info])}>
-      <img src={image} alt="Minder icons" />
+    <Container onClick={() => {
+      if (isChosen()) {
+        return;
+      }
+      setChosenCards([...chosenCards, info])
+    }}>
+      {/* {imageToRender} */}
     </Container>
   );
 }
