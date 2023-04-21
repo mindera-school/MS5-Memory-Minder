@@ -5,31 +5,21 @@ import { appContext } from "../../App";
 function Card({ image, id, found }) {
   const { setChosenCards } = useContext(appContext);
   const { chosenCards } = useContext(appContext);
+  const { clicks } = useContext(appContext);
+  const { setClicks } = useContext(appContext);
   const info = { image: image, id: id, found: found };
-  const [imageToRender, setImageToRender] = useState();
 
   const isChosen = () => {
     const searchResult = chosenCards.find(e => e.id === info.id);
     return searchResult === undefined ? false : true;
   };
 
-  const getImage = () => {
-    if (found) {
-      console.log(found)
-      return <img src={image} alt="Minder icons" />;
-    }
-    if (isChosen()) {
-      return <img src={image} alt="Minder icons" />;
-    }
-    return <img src={"https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Pixel%20Art/MinderaOlhoLozangulo.png?raw=true"} alt="Pixel minder" />;
-  }
-
-  useEffect(() => {
-    setImageToRender(getImage());
-  }, [chosenCards.length])
-
   return (
-    <Container className={isChosen() || found ? "flip-card" : ""} onClick={() => { if (isChosen()) { return; } setChosenCards([...chosenCards, info]) }}>
+    <Container className={isChosen() || found ? "flip-card" : ""} onClick={() => {
+      setClicks(clicks + 1);
+      if (isChosen()) { return; }
+      setChosenCards([...chosenCards, info])
+    }}>
       <CardInner className={isChosen() || found ? "flip-card" : ""}>
         <FrontSide>
           <img src={"https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Pixel%20Art/MinderaOlhoLozangulo.png?raw=true"} alt="Pixel minder" />

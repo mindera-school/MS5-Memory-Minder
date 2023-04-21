@@ -23,6 +23,8 @@ function Game() {
       <Counter>
         <span>Number of Cards Found:</span>
         {numberOfFound}
+        <span>Mismatches:</span>
+        {Math.floor((clicks - numberOfFound) / 2)}
       </Counter>
       <CardContainer />
     </GameContainer>
