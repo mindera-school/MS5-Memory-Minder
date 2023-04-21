@@ -9,6 +9,7 @@ function App() {
   const [allCards, setAllCards] = useState([]);
   const [chosenCards, setChosenCards] = useState([]);
   const [endGame, setEndGame] = useState(false);
+  const [clicks, setClicks] = useState(0);
   const images = [
     "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Cookie.png?raw=true",
     "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Alien.png?raw=true",
@@ -64,7 +65,14 @@ function App() {
 
   return (
     <appContext.Provider
-      value={{ allCards, setChosenCards, chosenCards, setEndGame }}
+      value={{
+        allCards,
+        setChosenCards,
+        chosenCards,
+        clicks,
+        setClicks,
+        setEndGame,
+      }}
     >
       <div className="App">
         <Game></Game>

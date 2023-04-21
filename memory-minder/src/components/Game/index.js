@@ -4,7 +4,7 @@ import CardContainer from "../CardsContainer";
 import { appContext } from "../../App";
 
 function Game() {
-  const { allCards, setEndGame } = useContext(appContext);
+  const { allCards, setEndGame, clicks } = useContext(appContext);
   const numberOfFound = allCards.filter((e) => {
     if (e.found) {
       return true;
