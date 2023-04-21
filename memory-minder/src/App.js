@@ -63,9 +63,17 @@ function App() {
   }, []);
 
   return (
-    <appContext.Provider value={{ allCards, setChosenCards, chosenCards, setEndGame }}>
+    <appContext.Provider
+      value={{ allCards, setChosenCards, chosenCards, setEndGame }}
+    >
       <div className="App">
         <Game></Game>
+        <WinModal endGame={endGame}>
+          <form>
+            <h2>You win!</h2>
+            <button>play again</button>
+          </form>
+        </WinModal>
         <GlobalStyle />
       </div>
     </appContext.Provider>
@@ -78,6 +86,26 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+`;
+
+const WinModal = styled.div`
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  height: 40%;
+  width: 40%;
+  z-index: 10;
+  background-color: white;
+  border: 1px solid black;
+  display: ${({ endGame }) => (endGame ? "block" : "none")};
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
   }
 `;
 

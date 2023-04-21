@@ -4,7 +4,7 @@ import CardContainer from "../CardsContainer";
 import { appContext } from "../../App";
 
 function Game() {
-  const allCards = useContext(appContext).allCards;
+  const { allCards, setEndGame } = useContext(appContext);
   const numberOfFound = allCards.filter((e) => {
     if (e.found) {
       return true;
@@ -13,7 +13,9 @@ function Game() {
   }).length;
 
   useEffect(() => {
-    
+    if (numberOfFound === 20) {
+      setEndGame(true);
+    }
   }, [numberOfFound]);
 
   return (
