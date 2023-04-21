@@ -8,6 +8,7 @@ export const appContext = createContext({});
 function App() {
   const [allCards, setAllCards] = useState([]);
   const [chosenCards, setChosenCards] = useState([]);
+  const [endGame, setEndGame] = useState(false);
   const images = [
     "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Cookie.png?raw=true",
     "https://github.com/mindera-school/minders/blob/master/src/assets/Minders/Alien.png?raw=true",
@@ -34,12 +35,14 @@ function App() {
   useEffect(() => {
     if (chosenCards.length === 3) {
       if (chosenCards[0].image === chosenCards[1].image) {
-        setAllCards(allCards.map(e => {
-          if (e.id === chosenCards[0].id || e.id === chosenCards[1].id) {
-            return { ...e, found: true };
-          }
-          return e;
-        }));
+        setAllCards(
+          allCards.map((e) => {
+            if (e.id === chosenCards[0].id || e.id === chosenCards[1].id) {
+              return { ...e, found: true };
+            }
+            return e;
+          })
+        );
         setChosenCards([]);
       }
       setChosenCards([]);
@@ -52,7 +55,7 @@ function App() {
         return {
           id: Math.random().toString(36).substr(2, 9),
           image: e,
-          found: false
+          found: false,
         };
       })
     );
@@ -60,7 +63,7 @@ function App() {
   }, []);
 
   return (
-    <appContext.Provider value={{ allCards, setChosenCards, chosenCards }}>
+    <appContext.Provider value={{ allCards, setChosenCards, chosenCards, setEndGame }}>
       <div className="App">
         <Game></Game>
         <GlobalStyle />

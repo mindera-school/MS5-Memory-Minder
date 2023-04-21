@@ -1,16 +1,20 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
 import CardContainer from "../CardsContainer";
 import { appContext } from "../../App";
 
 function Game() {
   const allCards = useContext(appContext).allCards;
-  const numberOfFound = allCards.filter(e => {
+  const numberOfFound = allCards.filter((e) => {
     if (e.found) {
       return true;
     }
     return false;
   }).length;
+
+  useEffect(() => {
+    
+  }, [numberOfFound]);
 
   return (
     <GameContainer>
@@ -47,8 +51,6 @@ const Counter = styled.div`
   padding: 15px;
   box-sizing: border-box;
   font-weight: 900;
-`
+`;
 
 export default Game;
-
-
