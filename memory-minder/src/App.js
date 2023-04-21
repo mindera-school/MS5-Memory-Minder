@@ -34,7 +34,7 @@ function App() {
   ];
 
   useEffect(() => {
-    if (chosenCards.length === 3) {
+    if (chosenCards.length === 2) {
       if (chosenCards[0].image === chosenCards[1].image) {
         setAllCards(
           allCards.map((e) => {
@@ -77,10 +77,18 @@ function App() {
       <div className="App">
         <Game></Game>
         <WinModal endGame={endGame}>
-          <form>
+          <div>
             <h2>You win!</h2>
-            <button>play again</button>
-          </form>
+            <button
+              onClick={() => {
+                setAllCards([...allCards].map((e) => (e.found = false)));
+                setEndGame(false);
+                setClicks(0);
+              }}
+            >
+              play again
+            </button>
+          </div>
         </WinModal>
         <GlobalStyle />
       </div>
@@ -108,7 +116,7 @@ const WinModal = styled.div`
   border: 1px solid black;
   display: ${({ endGame }) => (endGame ? "block" : "none")};
 
-  & form {
+  & div {
     display: flex;
     flex-direction: column;
     align-items: center;
