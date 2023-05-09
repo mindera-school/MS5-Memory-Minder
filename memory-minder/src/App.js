@@ -60,6 +60,9 @@ function App() {
         };
       })
     );
+    if (allCards.length !== 0) {
+      setAllCards(allCards.sort(() => Math.random() - 0.5));
+    }
   }, []);
 
   return (
