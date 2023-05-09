@@ -60,13 +60,13 @@ function App() {
         };
       })
     );
-    allCards.sort(() => Math.random() - 0.5);
   }, []);
 
   return (
     <appContext.Provider
       value={{
         allCards,
+        setAllCards,
         setChosenCards,
         chosenCards,
         clicks,

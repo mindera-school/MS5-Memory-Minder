@@ -5,6 +5,8 @@ import { appContext } from "../../App";
 
 function CardContainer() {
   const { allCards } = useContext(appContext);
+  const { setAllCards } = useContext(appContext);
+  setAllCards(allCards.sort(() => Math.random() - 0.5));
   const { buttonState } = useContext(appContext);
   const showCards = allCards.map((e) => {
     return <Card image={e.image} id={e.id} found={e.found} />;
